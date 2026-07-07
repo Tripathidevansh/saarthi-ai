@@ -22,13 +22,13 @@ export const Header: React.FC = () => {
       </Link>
 
       <div className="hidden md:flex items-center gap-8 text-sm font-semibold">
-        <Link href="/" className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+        <Link href="/#features" className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
           {t("services")}
         </Link>
-        <Link href="#" className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
+        <Link href="/about" className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
           {t("about")}
         </Link>
-        <Link href="#" className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors font-medium">
+        <Link href="/contact" className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors font-medium">
           {t("contact")}
         </Link>
       </div>
@@ -43,7 +43,7 @@ export const Header: React.FC = () => {
         <Link href="/dashboard" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full overflow-hidden border border-slate-200 dark:border-slate-800">
             <img
-              alt="Rohan Verma Profile"
+              alt="Demo User Profile"
               className="w-full h-full object-cover"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1IOtQmvbMOiAvdqULIpB-mkhV2vAbUgM5FHvTxVb_x0hrDwfyiVXYIGLL37YReNxJvYQDKJnfsku4JoPUsm5LHPlAU6ODWEcYrMADj9hRmWJCRZ7AfSO-sAAsrvsWfs9H7yBtYgzK0NH-QiA6Fx4qBwpPLEYSekhnlSV7BnM9pktmNkVlxOp_IB5au3NS2WDS8pCG3KHDv7fJDxpqkYlifRRdmgcFYvFzDtyXu84tba7Q5LLI1K8QNSEurck43K6LyoA8J7tdiQw8"
             />

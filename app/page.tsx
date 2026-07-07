@@ -8,7 +8,7 @@ import { StatCounter } from "@/components/StatCounter";
 import { FeatureCard } from "@/components/FeatureCard";
 import { TricolorSeparator } from "@/components/TricolorSeparator";
 import Logo from "@/components/Logo";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Mic,
   Keyboard,
@@ -27,6 +27,7 @@ import {
 
 export default function LandingPage() {
   const { t, language } = useLanguage();
+  const [isDemoModalOpen, setIsDemoModalOpen] = React.useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -140,13 +141,13 @@ export default function LandingPage() {
                 >
                   {t("getStarted")}
                 </Link>
-                <Link
-                  href="#"
+                <button
+                  onClick={() => setIsDemoModalOpen(true)}
                   className="w-full sm:w-auto border-2 border-slate-800 dark:border-white text-slate-800 dark:text-white text-sm font-bold px-10 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white dark:hover:bg-white dark:hover:text-slate-800 transition-all flex items-center justify-center gap-2"
                 >
                   <PlayCircle className="h-5 w-5" />
                   {t("watchDemo")}
-                </Link>
+                </button>
               </div>
             </GlassCard>
           </motion.div>
@@ -192,7 +193,7 @@ export default function LandingPage() {
       </section>
 
       {/* Bento Grid */}
-      <section className="py-24 px-6 md:px-10 max-w-[1280px] mx-auto w-full">
+      <section id="features" className="py-24 px-6 md:px-10 max-w-[1280px] mx-auto w-full scroll-mt-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <FeatureCard
             icon={Search}
@@ -266,13 +267,13 @@ export default function LandingPage() {
           </span>
         </div>
         <div className="flex gap-8 text-sm font-semibold">
-          <Link href="#" className="hover:text-[#fe9832] transition-colors">{t("services")}</Link>
-          <Link href="#" className="hover:text-[#fe9832] transition-colors">{t("about")}</Link>
-          <Link href="#" className="hover:text-[#fe9832] transition-colors">{t("contact")}</Link>
+          <Link href="#features" className="hover:text-[#fe9832] transition-colors">{t("services")}</Link>
+          <Link href="/about" className="hover:text-[#fe9832] transition-colors">{t("about")}</Link>
+          <Link href="/contact" className="hover:text-[#fe9832] transition-colors">{t("contact")}</Link>
         </div>
         <div className="w-full max-w-xl h-px bg-slate-800 my-4"></div>
         <p className="text-xs text-slate-500">
-          © 2024 Saarthi AI | Digital India Initiative
+          © 2026 Saarthi AI. All Rights Reserved.
         </p>
       </footer>
 
@@ -286,6 +287,58 @@ export default function LandingPage() {
           Ask Saarthi
         </span>
       </Link>
+
+      <AnimatePresence>
+        {isDemoModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/40 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ type: "spring", duration: 0.4 }}
+              className="w-full max-w-lg glass-card p-6 md:p-8 rounded-2xl shadow-2xl relative overflow-hidden"
+            >
+              {/* Background accents */}
+              <div className="absolute -top-12 -right-12 w-28 h-28 rounded-full saffron-gradient opacity-10 blur-xl"></div>
+              <div className="absolute -bottom-12 -left-12 w-28 h-28 rounded-full bg-emerald-500 opacity-10 blur-xl"></div>
+
+              <div className="space-y-6 relative z-10 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-amber-50 dark:bg-amber-950/20 text-[#fe9832] flex items-center justify-center flex-shrink-0">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-xl font-extrabold text-[#0B1F3A] dark:text-white">
+                    Demo Coming Soon 🚀
+                  </h3>
+                </div>
+
+                <p className="text-sm leading-relaxed text-slate-650 dark:text-slate-400">
+                  Thank you for your interest in Saarthi AI.
+                  <br /><br />
+                  The interactive product demo is currently under development and will be available in an upcoming beta release.
+                  <br /><br />
+                  In the meantime, explore the live platform to experience AI-powered civic assistance, multilingual support and intelligent government service discovery.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                  <button
+                    onClick={() => setIsDemoModalOpen(false)}
+                    className="flex-1 saffron-gradient text-white text-xs font-bold py-3.5 rounded-xl shadow-md hover:brightness-110 active:scale-95 transition-all text-center"
+                  >
+                    Continue Exploring
+                  </button>
+                  <button
+                    onClick={() => setIsDemoModalOpen(false)}
+                    className="sm:w-28 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-350 text-xs font-bold py-3.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-all text-center"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

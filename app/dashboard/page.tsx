@@ -92,7 +92,7 @@ export default function Dashboard() {
               <div className="absolute inset-0 opacity-40 hero-mesh z-0 pointer-events-none"></div>
               <div className="relative z-10 space-y-1">
                 <h1 className="text-2xl md:text-3.5xl font-extrabold tracking-tight">
-                  {t("goodMorning")}, Rohan Verma 👋
+                  {t("goodMorning")}, Demo User 👋
                 </h1>
                 <p className="text-sm md:text-base text-slate-300">
                   How can Saarthi assist you in your civic duties today?
@@ -291,11 +291,11 @@ export default function Dashboard() {
                 <img
                   className="w-full h-full object-cover"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1IOtQmvbMOiAvdqULIpB-mkhV2vAbUgM5FHvTxVb_x0hrDwfyiVXYIGLL37YReNxJvYQDKJnfsku4JoPUsm5LHPlAU6ODWEcYrMADj9hRmWJCRZ7AfSO-sAAsrvsWfs9H7yBtYgzK0NH-QiA6Fx4qBwpPLEYSekhnlSV7BnM9pktmNkVlxOp_IB5au3NS2WDS8pCG3KHDv7fJDxpqkYlifRRdmgcFYvFzDtyXu84tba7Q5LLI1K8QNSEurck43K6LyoA8J7tdiQw8"
-                  alt="Rohan Profile avatar"
+                  alt="Demo User Profile"
                 />
               </div>
               <h3 className="font-sans text-lg font-bold text-[#0B1F3A] dark:text-white">
-                Rohan Verma
+                Demo User
               </h3>
               <p className="text-[10px] font-bold text-slate-450 uppercase tracking-widest mb-5">
                 {t("verifiedCitizenBadge")} | New Delhi
