@@ -253,7 +253,7 @@ function AssistantContent() {
       <Sidebar />
 
       {/* Main Container Area */}
-      <div className="flex-1 md:pl-64 flex flex-col h-[calc(100vh-64px)] overflow-hidden">
+      <main className="flex-1 md:pl-64 flex flex-col h-[calc(100vh-64px)] overflow-hidden">
         <TricolorSeparator />
 
         <div className="flex-1 flex flex-col lg:grid lg:grid-cols-12 overflow-hidden h-full">
@@ -291,12 +291,18 @@ function AssistantContent() {
                   <span>Saarthi is thinking...</span>
                 </div>
               )}
+              <div aria-live="polite" aria-atomic="true" className="sr-only">
+                {loading ? "Saarthi is thinking..." : explainingId ? "Saarthi is explaining..." : translatingId ? "Saarthi is translating..." : ""}
+              </div>
               <div ref={chatEndRef} />
             </div>
 
             {/* Input bar */}
             <div className="p-4 bg-white dark:bg-slate-900 border-t border-slate-150 dark:border-slate-800 flex items-center gap-3">
-              <button className="p-2.5 text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors">
+              <button
+                aria-label="Attach file"
+                className="p-2.5 text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
+              >
                 <Paperclip className="h-5 w-5" />
               </button>
 
@@ -312,12 +318,14 @@ function AssistantContent() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder={t("askQuestionPlaceholder")}
-                  className="flex-1 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 px-4 py-3 text-sm focus:border-[#fe9832] focus:outline-none focus:ring-1 focus:ring-[#fe9832] dark:text-white"
+                  aria-label={t("askQuestionPlaceholder")}
+                  className="flex-1 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 px-4 py-3 text-sm focus:border-[#fe9832] focus:outline-none focus:ring-1 focus:ring-[#fe9832] focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:border-transparent dark:text-white"
                 />
 
                 <button
                   type="button"
-                  className="p-2.5 text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors"
+                  aria-label="Voice input speech recognition"
+                  className="p-2.5 text-slate-400 hover:text-slate-650 dark:text-slate-500 dark:hover:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-950 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
                 >
                   <Mic className="h-5 w-5" />
                 </button>
@@ -325,7 +333,8 @@ function AssistantContent() {
                 <button
                   type="submit"
                   disabled={!input.trim() || loading}
-                  className="p-3 bg-[#fe9832] text-white rounded-xl shadow-md hover:brightness-110 active:scale-95 transition-all disabled:opacity-50 flex-shrink-0"
+                  aria-label="Send message"
+                  className="p-3 bg-[#fe9832] text-white rounded-xl shadow-md hover:brightness-110 active:scale-95 transition-all disabled:opacity-50 flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
                 >
                   <Send className="h-4.5 w-4.5" />
                 </button>
@@ -363,7 +372,7 @@ function AssistantContent() {
             )}
           </aside>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

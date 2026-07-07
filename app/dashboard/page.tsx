@@ -81,7 +81,7 @@ export default function Dashboard() {
       <Sidebar />
 
       {/* Main Container Area */}
-      <div className="flex-1 md:pl-64 flex flex-col">
+      <main className="flex-1 md:pl-64 flex flex-col">
         <TricolorSeparator />
 
         <div className="p-4 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 flex-1">
@@ -107,7 +107,7 @@ export default function Dashboard() {
             <section className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <Link
                 href="/assistant"
-                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md group"
+                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:scale-[1.03]"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#0B1F3A] dark:bg-slate-850 flex items-center justify-center text-white shadow-sm">
                   <MessageSquare className="h-5 w-5" />
@@ -119,7 +119,7 @@ export default function Dashboard() {
 
               <Link
                 href="/report"
-                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md"
+                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:scale-[1.03]"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#fe9832] flex items-center justify-center text-white shadow-sm">
                   <Camera className="h-5 w-5" />
@@ -131,7 +131,7 @@ export default function Dashboard() {
 
               <Link
                 href="/assistant?q=Show me schemes relevant to me"
-                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md"
+                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:scale-[1.03]"
               >
                 <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center text-white shadow-sm">
                   <Search className="h-5 w-5" />
@@ -143,7 +143,7 @@ export default function Dashboard() {
 
               <Link
                 href="/assistant?q=What documents do I need for Aadhaar card update?"
-                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md"
+                className="glass-card p-5 flex flex-col items-center gap-3 text-center transition-all hover:scale-[1.03] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:scale-[1.03]"
               >
                 <div className="w-12 h-12 rounded-xl bg-blue-500 flex items-center justify-center text-white shadow-sm">
                   <FileCheck className="h-5 w-5" />
@@ -208,7 +208,7 @@ export default function Dashboard() {
                 <h2 className="text-lg font-bold text-[#0B1F3A] dark:text-white">
                   {t("suggestionsTitle")}
                 </h2>
-                <button className="text-xs font-bold text-[#fe9832] hover:underline">
+                <button className="text-xs font-bold text-[#fe9832] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] rounded px-1">
                   View Calendar
                 </button>
               </div>
@@ -274,7 +274,7 @@ export default function Dashboard() {
                   <Link
                     key={index}
                     href={faq.href}
-                    className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-full text-xs font-semibold text-slate-700 dark:text-slate-350 hover:bg-[#0B1F3A] dark:hover:bg-white hover:text-white dark:hover:text-slate-900 hover:border-transparent transition-all shadow-sm"
+                    className="px-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-850 rounded-full text-xs font-semibold text-slate-700 dark:text-slate-350 hover:bg-[#0B1F3A] dark:hover:bg-white hover:text-white dark:hover:text-slate-900 hover:border-transparent transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:border-transparent"
                   >
                     {faq.text}
                   </Link>
@@ -379,7 +379,7 @@ export default function Dashboard() {
             </div>
           </aside>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

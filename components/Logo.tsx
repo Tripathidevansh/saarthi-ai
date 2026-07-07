@@ -12,7 +12,10 @@ export const Logo: React.FC<LogoProps> = ({ className = "h-8 w-8" }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full drop-shadow-sm"
+        aria-labelledby="logo-title"
+        role="img"
       >
+        <title id="logo-title">Saarthi AI Logo</title>
         {/* Main Shield / Pin outline in deep navy */}
         <path
           d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"

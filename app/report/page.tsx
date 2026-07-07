@@ -119,6 +119,9 @@ export default function ReportPage() {
         <div className="flex-1 flex flex-col lg:grid lg:grid-cols-12 overflow-hidden h-full">
           {/* Left Primary Interaction Column */}
           <main className="lg:col-span-8 overflow-y-auto p-6 md:p-8 h-full">
+            <div aria-live="polite" aria-atomic="true" className="sr-only">
+              {stage === "analyzing" ? "Saarthi is analyzing your uploaded photo..." : stage === "analyzed" ? "Vision report analysis completed." : stage === "success" ? "Complaint filed successfully." : ""}
+            </div>
             {stage === "upload" && (
               <div className="max-w-2xl mx-auto space-y-6">
                 <div>
@@ -133,7 +136,17 @@ export default function ReportPage() {
                 <GlassCard className="p-6 md:p-8 space-y-6">
                   {/* Photo Upload Box */}
                   {!selectedImage ? (
-                    <label className="flex flex-col items-center justify-center border-2 border-dashed border-slate-350 dark:border-slate-800 rounded-2xl h-64 hover:border-[#fe9832] transition-colors cursor-pointer group bg-slate-50/50 dark:bg-slate-900/10">
+                    <label
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          document.getElementById("civic-photo-upload")?.click();
+                        }
+                      }}
+                      aria-label="Upload photo of civic issue"
+                      className="flex flex-col items-center justify-center border-2 border-dashed border-slate-350 dark:border-slate-800 rounded-2xl h-64 hover:border-[#fe9832] transition-colors cursor-pointer group bg-slate-50/50 dark:bg-slate-900/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
+                    >
                       <div className="flex flex-col items-center gap-3 text-center px-4">
                         <div className="h-12 w-12 rounded-xl bg-amber-50 dark:bg-amber-950/20 text-[#fe9832] flex items-center justify-center group-hover:scale-105 transition-transform">
                           <Upload className="h-6 w-6" />
@@ -148,6 +161,7 @@ export default function ReportPage() {
                         </div>
                       </div>
                       <input
+                        id="civic-photo-upload"
                         type="file"
                         accept="image/*"
                         onChange={handleFileChange}
@@ -163,7 +177,8 @@ export default function ReportPage() {
                       />
                       <button
                         onClick={clearImage}
-                        className="absolute top-4 right-4 p-2 bg-slate-950/70 hover:bg-slate-950 text-white rounded-full shadow transition-all hover:scale-95"
+                        aria-label="Clear selected image"
+                        className="absolute top-4 right-4 p-2 bg-slate-950/70 hover:bg-slate-950 text-white rounded-full shadow transition-all hover:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
                       >
                         <X className="h-4.5 w-4.5" />
                       </button>
@@ -172,15 +187,16 @@ export default function ReportPage() {
 
                   {/* Optional Description */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
+                    <label htmlFor="incident-description" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                       {t("optionalDescriptionLabel")}
                     </label>
                     <textarea
+                      id="incident-description"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       placeholder="e.g. Broken streetlight causing visibility issues at night..."
                       rows={3}
-                      className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 p-4 text-sm focus:border-[#fe9832] focus:outline-none focus:ring-1 focus:ring-[#fe9832] dark:bg-slate-950/50 dark:text-white"
+                      className="w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 p-4 text-sm focus:border-[#fe9832] focus:outline-none focus:ring-1 focus:ring-[#fe9832] focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:border-transparent dark:bg-slate-950/50 dark:text-white"
                     />
                   </div>
 
@@ -188,7 +204,7 @@ export default function ReportPage() {
                   <button
                     onClick={triggerAnalysis}
                     disabled={!selectedImage || analyzing}
-                    className="w-full saffron-gradient text-white font-bold py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                    className="w-full saffron-gradient text-white font-bold py-4 rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] focus-visible:ring-offset-2"
                   >
                     {analyzing ? (
                       <Loader2 className="h-5 w-5 animate-spin" />

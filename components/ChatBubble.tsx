@@ -99,7 +99,8 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
             <button
               onClick={onExplainSimply}
               disabled={explaining}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-[11px] font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-950 dark:text-slate-300 disabled:opacity-50"
+              aria-label="Explain this answer simply"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-[11px] font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-950 dark:text-slate-300 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
             >
               {explaining ? (
                 <Loader2 className="h-3 w-3 animate-spin" />
@@ -116,7 +117,9 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
               <button
                 onClick={() => setShowTranslateMenu(!showTranslateMenu)}
                 disabled={translating}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-[11px] font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-950 dark:text-slate-300 disabled:opacity-50"
+                aria-label="Translate this response"
+                aria-expanded={showTranslateMenu}
+                className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-[11px] font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-950 dark:text-slate-300 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
               >
                 {translating ? (
                   <Loader2 className="h-3 w-3 animate-spin" />
@@ -135,7 +138,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
                         onTranslate(lang);
                         setShowTranslateMenu(false);
                       }}
-                      className="block w-full px-3 py-1.5 text-left text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-850"
+                      className="block w-full px-3 py-1.5 text-left text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-850 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
                     >
                       {lang}
                     </button>
@@ -148,7 +151,8 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
           {/* Listen */}
           <button
             onClick={handleListen}
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 text-[11px] font-semibold transition-all ${
+            aria-label={isPlaying ? "Stop listening to text" : "Listen to response text-to-speech"}
+            className={`flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 text-[11px] font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] ${
               isPlaying
                 ? "bg-[#fe9832] text-white border-[#fe9832]"
                 : "bg-white hover:bg-slate-50 text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-950 dark:text-slate-300"
@@ -161,7 +165,8 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
           {/* Copy */}
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-[11px] font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-950 dark:text-slate-300"
+            aria-label="Copy response text"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-[11px] font-semibold text-slate-700 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-950 dark:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
           >
             {copied ? <Check className="h-3 w-3 text-emerald-500" /> : <Copy className="h-3 w-3 text-slate-500" />}
             {copied ? "Copied" : t("copyBtn")}

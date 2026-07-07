@@ -48,6 +48,7 @@ export default function LandingPage() {
     <div className={`min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 lang-${language}`}>
       <TricolorSeparator />
 
+      <main className="flex-1 flex flex-col">
       {/* Hero Section */}
       <section className="relative flex-1 min-h-[85vh] flex flex-col items-center justify-center text-center px-6 md:px-10 py-16 hero-mesh">
         <div className="absolute inset-0 bg-white/40 dark:bg-slate-950/40 backdrop-blur-[2px] pointer-events-none"></div>
@@ -89,7 +90,8 @@ export default function LandingPage() {
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   href="/assistant"
-                  className="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white hover:border-[#fe9832] dark:bg-slate-900 dark:hover:border-[#fe9832] transition-all shadow-sm group w-full sm:w-auto text-left"
+                  className="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white hover:border-[#fe9832] dark:bg-slate-900 dark:hover:border-[#fe9832] transition-all shadow-sm group w-full sm:w-auto text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
+                  aria-label="Ask Saarthi via Voice Input"
                 >
                   <span className="text-xl group-hover:scale-110 transition-transform">🎤</span>
                   <div>
@@ -104,7 +106,8 @@ export default function LandingPage() {
 
                 <Link
                   href="/assistant"
-                  className="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white hover:border-[#fe9832] dark:bg-slate-900 dark:hover:border-[#fe9832] transition-all shadow-sm group w-full sm:w-auto text-left"
+                  className="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white hover:border-[#fe9832] dark:bg-slate-900 dark:hover:border-[#fe9832] transition-all shadow-sm group w-full sm:w-auto text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
+                  aria-label="Ask Saarthi via Text Chat"
                 >
                   <span className="text-xl group-hover:scale-110 transition-transform">⌨️</span>
                   <div>
@@ -119,7 +122,8 @@ export default function LandingPage() {
 
                 <Link
                   href="/report"
-                  className="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white hover:border-[#fe9832] dark:bg-slate-900 dark:hover:border-[#fe9832] transition-all shadow-sm group w-full sm:w-auto text-left"
+                  className="flex items-center gap-3 px-6 py-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white hover:border-[#fe9832] dark:bg-slate-900 dark:hover:border-[#fe9832] transition-all shadow-sm group w-full sm:w-auto text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
+                  aria-label="File complaint via AI Vision Photo"
                 >
                   <span className="text-xl group-hover:scale-110 transition-transform">📷</span>
                   <div>
@@ -137,13 +141,14 @@ export default function LandingPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 border-t border-slate-100 dark:border-slate-800">
                 <Link
                   href="/dashboard"
-                  className="w-full sm:w-auto saffron-gradient text-white text-sm font-bold px-10 py-4 rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-95 text-center"
+                  className="w-full sm:w-auto saffron-gradient text-white text-sm font-bold px-10 py-4 rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-95 text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
                 >
                   {t("getStarted")}
                 </Link>
                 <button
                   onClick={() => setIsDemoModalOpen(true)}
-                  className="w-full sm:w-auto border-2 border-slate-800 dark:border-white text-slate-800 dark:text-white text-sm font-bold px-10 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white dark:hover:bg-white dark:hover:text-slate-800 transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto border-2 border-slate-800 dark:border-white text-slate-800 dark:text-white text-sm font-bold px-10 py-3.5 rounded-xl hover:bg-slate-800 hover:text-white dark:hover:bg-white dark:hover:text-slate-800 transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832]"
+                  aria-label="Watch interactive demo modal"
                 >
                   <PlayCircle className="h-5 w-5" />
                   {t("watchDemo")}
@@ -257,6 +262,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="w-full py-12 px-6 md:px-10 flex flex-col items-center gap-6 bg-[#051122] text-slate-400 border-t border-slate-900">
@@ -267,9 +273,9 @@ export default function LandingPage() {
           </span>
         </div>
         <div className="flex gap-8 text-sm font-semibold">
-          <Link href="#features" className="hover:text-[#fe9832] transition-colors">{t("services")}</Link>
-          <Link href="/about" className="hover:text-[#fe9832] transition-colors">{t("about")}</Link>
-          <Link href="/contact" className="hover:text-[#fe9832] transition-colors">{t("contact")}</Link>
+          <Link href="#features" className="hover:text-[#fe9832] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] rounded px-1">{t("services")}</Link>
+          <Link href="/about" className="hover:text-[#fe9832] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] rounded px-1">{t("about")}</Link>
+          <Link href="/contact" className="hover:text-[#fe9832] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] rounded px-1">{t("contact")}</Link>
         </div>
         <div className="w-full max-w-xl h-px bg-slate-800 my-4"></div>
         <p className="text-xs text-slate-500">

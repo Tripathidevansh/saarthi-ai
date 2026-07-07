@@ -38,7 +38,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
       <div className="mt-8">
         <Link
           href={actionHref}
-          className="inline-flex items-center gap-2 text-sm font-bold text-[#fe9832] transition-transform hover:translate-x-1 group"
+          className="inline-flex items-center gap-2 text-sm font-bold text-[#fe9832] transition-transform hover:translate-x-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#fe9832] rounded-md px-1"
         >
           {actionText}
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

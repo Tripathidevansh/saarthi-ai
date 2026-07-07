@@ -17,7 +17,8 @@ export const LanguageSwitcher: React.FC = () => {
       <select
         value={language}
         onChange={handleLanguageChange}
-        className="cursor-pointer border-0 bg-transparent py-0 pl-0 pr-6 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-0 dark:text-slate-200"
+        aria-label="Change Language"
+        className="cursor-pointer border-0 bg-transparent py-0 pl-0 pr-6 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-[#fe9832] rounded dark:text-slate-200"
         style={{
           backgroundImage: "none", // Override default tailwind forms select arrow
         }}
